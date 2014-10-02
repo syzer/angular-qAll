@@ -1,0 +1,32 @@
+{
+    "name": "module-name",
+    "version": "1.0.0",
+    "description": "An example module to illustrate the usage of a package.json",
+    "author": "syzer@users.noreply.github.com",
+    "contributors": [{
+        "name": "syzer",
+        "email": "syzer@users.noreply.github.com"
+    }],
+    "main": "app.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/syzer/angular-qAll"
+    },
+    "bugs": {
+        "url": "https://github.com/syzer/angular-qAll/issues"
+    },
+    "keywords": [
+        "nodejitsu",
+        "example",
+        "browsenpm"
+    ],
+    "dependencies": {
+        "http-server": "*"
+    },
+    "devDependencies": {
+    },
+    "preferGlobal": true,
+    "private": false,
+    "analyze": true,
+    "license": "MIT"
+}
