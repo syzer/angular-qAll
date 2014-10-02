@@ -1,8 +1,10 @@
-Qall example
-------------
+Q All example
+-------------
 
 HOWTO
 -----
+
+`npm i`
 
 `http-server`
 
