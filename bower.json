@@ -1,0 +1,23 @@
+{
+    "name": "angular-qAll",
+    "version": "0.0.0",
+    "homepage": "https://github.com/syzer/angular-qAll",
+    "authors": [
+        "syzer <syzer3@gmail.com>"
+    ],
+    "main": "index.html",
+    "moduleType": [
+        "es6"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "bluebird": "~2.3.5"
+    }
+}
