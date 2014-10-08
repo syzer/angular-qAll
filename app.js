@@ -45,9 +45,7 @@ app.controller('MainCtrl', function ($scope, $log, getFiles, allWithProgress, lo
     function loadAndPrintFiles(files) {
         return getFiles(files)
             .then(function (combinedData) {
-                $scope.part1 = combinedData[0];
-                $scope.part2 = combinedData[1];
-                $scope.part3 = combinedData[2];
+                $scope.combinedData = combinedData;
             })
             .catch(function (error) {
                 $scope.error = 'There was an error reading files.' + error;
