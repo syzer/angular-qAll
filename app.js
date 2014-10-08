@@ -11,7 +11,7 @@ app.factory('loadFile', function ($q, $http) {
                 deffered.resolve(data);
             })
             .error(function (error) {
-                deffered.reject();
+                deffered.reject(error + file);
             });
 
         return deffered.promise;
@@ -28,16 +28,15 @@ app.factory('allWithProgress', function ($q) {
     return function allWithProgress(promises, progress) {
         var total = promises.length;
         var now = 0;
-        promises.forEach(function (p) {
-            p.then(function () {
+
+        return $q.all(promises.map(function (p) {
+            return p.then(function (data) {
                 now++;
                 progress(now / total);
-            });
-        });
-        return $q.all(promises);
+            })
+        }));
     }
 });
-
 
 app.controller('MainCtrl', function ($scope, $log, getFiles, allWithProgress, loadFile) {
 
@@ -51,7 +50,7 @@ app.controller('MainCtrl', function ($scope, $log, getFiles, allWithProgress, lo
                 $scope.part3 = combinedData[2];
             })
             .catch(function (error) {
-                $scope.error = "There was an error reading files.";
+                $scope.error = 'There was an error reading files.' + error;
             });
     }
 
@@ -59,7 +58,7 @@ app.controller('MainCtrl', function ($scope, $log, getFiles, allWithProgress, lo
     loadAndPrintFiles(files);
 
     // with non existent file
-//    files.push('NonExistent');
+    files.push('NonExistent.json');
     loadAndPrintFiles(files);
 
     // allWithProgress
@@ -68,7 +67,7 @@ app.controller('MainCtrl', function ($scope, $log, getFiles, allWithProgress, lo
     }).then(function (combinedData) {
         $log.log('combinedData', combinedData);
     }).catch(function (error) {
-        $log.log("There was an error reading files.");
+        $log.log('There was an error reading files.', error);
     })
 
 });
