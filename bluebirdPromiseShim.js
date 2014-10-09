@@ -18,7 +18,8 @@ function defer() {
     };
 }
 
-function resolveMe(a) {
+function resolveMe(innerScope) {
+    // use innerScope
     return defer();
 }
 
@@ -50,17 +51,19 @@ Promise
         console.log(data);
     });
 
+// any
 Promise
     .any([first.promise, second.promise])
     .then(function (data) {
         console.log('done using any promise', data);
     });
 
+// some
 Promise
     .some([first.promise, second.promise], 2)
     .then(function (data) {
         console.log('done using some', data);
     });
 
-first.resolve(1);
-second.resolve(2);
+first.resolve(a);
+second.resolve(b);
