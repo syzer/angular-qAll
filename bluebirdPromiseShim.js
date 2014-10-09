@@ -66,4 +66,4 @@ Promise
     });
 
 first.resolve(a);
-second.resolve(b);
+second.resolve(a + 1);
