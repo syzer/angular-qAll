@@ -1,6 +1,8 @@
 Q All with progress example 
 ---------------------------
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/syzer/angular-qAll.svg)](https://greenkeeper.io/)
+
 HOWTO
 -----
 
